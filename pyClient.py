@@ -1,6 +1,6 @@
 import socket
 
-UDP_IP = "127.0.0.1"
+UDP_IP = "54.152.6.245"
 UDP_PORT = 8080
 
 print("UDP target IP:", UDP_IP)
