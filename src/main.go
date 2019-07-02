@@ -1,7 +1,6 @@
 package main
 
 import (
-	"dbcontroller"
 	"log"
 	"net"
 )
@@ -12,9 +11,6 @@ const (
 )
 
 func main() {
-
-	// Setup MYSQL connection
-	dbcontroller.InitializeMYSQL()
 
 	// Setup UDP listener
 	pc, err := net.ListenPacket("udp", ":"+PORT)
@@ -31,6 +27,7 @@ func main() {
 		if err != nil {
 			continue
 		}
-		dbcontroller.Serve(buf, addr.String(), n)
+
+		log.Println("len ", n, "addr ", addr.String(), " msg ", string(buf))
 	}
 }
